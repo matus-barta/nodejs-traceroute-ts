@@ -1,11 +1,11 @@
 {
-	"name": "nodejs-traceroute",
+	"name": "nodejs-traceroute-ts",
 	"version": "1.2.0",
-	"description": "Node.js wrapper around tracert and traceroute process",
+	"description": "Node.js wrapper around tracert and traceroute process - TypeScript port",
 	"main": "build/index.js",
 	"scripts": {
 		"example": "npm run build && node ./build/example.js",
-    "start": "node .",
+		"start": "node .",
 		"build": "npx tsc",
 		"watch": "tsnd --respawn ./src/index.ts",
 		"dev": "npm run watch",

@@ -1,42 +1,43 @@
-# nodejs-traceroute [![Build Status](https://travis-ci.org/zulhilmizainuddin/nodejs-traceroute.svg?branch=master)](https://travis-ci.org/zulhilmizainuddin/nodejs-traceroute) [![Code Climate](https://codeclimate.com/github/zulhilmizainuddin/nodejs-traceroute/badges/gpa.svg)](https://codeclimate.com/github/zulhilmizainuddin/nodejs-traceroute)
+# nodejs-traceroute
 
-[![NPM](https://nodei.co/npm/nodejs-traceroute.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nodejs-traceroute/)
+[![NPM](https://nodei.co/npm/nodejs-traceroute-ts.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nodejs-traceroute-ts/)
 
-Node.js wrapper around tracert and traceroute process
+Node.js wrapper around tracert and traceroute process - TypeScript port
 
 ## Install
 
-    npm install --save nodejs-traceroute
+    npm install --save nodejs-traceroute-ts
 
 ## Force IPv4 or IPv6
-By default, the domain name given will be automatically resolved. Explicitly force IPv4 or IPv6 tracerouting by passing either `ipv4` or `ipv6` to the constructor.
 
+By default, the domain name given will be automatically resolved. Explicitly force IPv4 or IPv6 tracerouting by passing either `ipv4` or `ipv6` to the constructor.
 
 ## Usage Example
 
-```javascript
-const Traceroute = require('nodejs-traceroute');
+``` TS
+import Traceroute from './index';
 
 try {
     const tracer = new Traceroute();
     tracer
         .on('pid', (pid) => {
-            console.log(`pid: ${pid}`);
+        console.log(`pid: ${pid}`);
         })
         .on('destination', (destination) => {
-            console.log(`destination: ${destination}`);
+        console.log(`destination: ${destination}`);
         })
         .on('hop', (hop) => {
-            console.log(`hop: ${JSON.stringify(hop)}`);
+        console.log(`hop: ${JSON.stringify(hop)}`);
         })
         .on('close', (code) => {
-            console.log(`close: code ${code}`);
+        console.log(`close: code ${code}`);
         });
 
-    tracer.trace('github.com');
+        tracer.trace('github.com');
 } catch (ex) {
     console.log(ex);
 }
+
 ```
 
 ## Result Example
