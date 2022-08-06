@@ -1,6 +1,6 @@
 {
 	"name": "nodejs-traceroute-ts",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Node.js wrapper around tracert and traceroute process - TypeScript port",
 	"main": "build/index.js",
 	"scripts": {
