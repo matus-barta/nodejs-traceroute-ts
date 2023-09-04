@@ -5,7 +5,7 @@ import validator from 'validator';
 
 const spawn = child_process.spawn;
 
-class Process extends events.EventEmitter {
+abstract class Process extends events.EventEmitter {
 	command: string;
 	args: string[];
 	constructor(command: string, args: string[]) {
@@ -58,9 +58,7 @@ class Process extends events.EventEmitter {
 		return validator.isFQDN(domainName + '') || validator.isIP(domainName + '');
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-	parseDestination(data: string) {}
-	// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-	parseHop(hopData: string) {}
+	abstract parseDestination(data: string): string | null;
+	abstract parseHop(hopData: string): { hop: number; ip: string; rtt1: string } | null;
 }
 export default Process;
